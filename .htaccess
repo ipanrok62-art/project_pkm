@@ -1,0 +1,9 @@
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^login/login$ login/login.php [L]
+RewriteRule ^dashboard$ dashboard/dashboard.php [L]
+RewriteRule ^databuku$ databuku/databuku.php [L]
+RewriteRule ^riwayat$ dashboard/riwayat_peminjaman.php [L]

@@ -1,0 +1,186 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* CONTAINER */
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+/* SIDEBAR */
+.sidebar {
+    width: 220px;
+    background: #f5f5f5;
+    padding: 20px;
+}
+
+.sidebar h2 {
+    margin-bottom: 20px;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar ul li {
+    padding: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+.sidebar ul li.active {
+    background: #6a11cb;
+    color: white;
+}
+
+/* MAIN */
+.main {
+    flex: 1;
+    background: #eee;
+    padding: 20px;
+    position: relative;
+}
+
+/* 🔥 TOPBAR (PASTI KE KANAN) */
+.topbarr {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+/* USER MENU */
+.user-menu {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+/* AVATAR */
+.avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}
+
+/* DROPDOWN */
+.dropdown {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background: white;
+    border-radius: 8px;
+    display: none;
+    flex-direction: column;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.dropdown a {
+    padding: 10px 20px;
+    text-decoration: none;
+    color: black;
+}
+
+.dropdown a:hover {
+    background: #f1f1f1;
+}
+
+/* CARDS */
+.cards {
+    display: flex;
+    gap: 20px;
+    margin-top: 80px; /* biar gak ketutup topbar */
+}
+
+.card {
+    flex: 1;
+    padding: 20px;
+    border-radius: 15px;
+    color: white;
+}
+
+/* WARNA */
+.pink {
+    background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+}
+
+.blue {
+    background: linear-gradient(45deg, #2193b0, #6dd5ed);
+}
+
+.green {
+    background: linear-gradient(45deg, #56ab2f, #a8e063);
+}
+
+.yellow {
+    background: linear-gradient(45deg, #f7971e, #ffd200);
+}
+.top-filter {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+/* tombol kategori */
+.kategori button {
+    padding: 8px 15px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 20px;
+    background: #eee;
+    cursor: pointer;
+}
+
+.kategori button:hover {
+    background: #6a11cb;
+    color: white;
+}
+
+/* search */
+.search-box input {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* container buku */
+.book-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 20px;
+}
+
+/* card buku */
+.book-card {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.book-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.book-card h4 {
+    margin: 10px 0;
+}
+
+.book-card button {
+    padding: 5px 10px;
+    border: none;
+    background: green;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
