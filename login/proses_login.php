@@ -9,7 +9,7 @@ $password = $_POST['password'];
 
 $query = mysqli_query($conn, "
 
-SELECT * FROM user
+SELECT * FROM 'user'
 
 WHERE username='$username'
 
@@ -43,15 +43,10 @@ if($cek > 0){
 
 }else{
 
-    echo "
-    <script>
-
-        alert('Username atau Password salah!');
-
-        window.location='login.php';
-
-    </script>
-    ";
+    echo "<script>
+    alert('Username atau Password salah!');
+    window.location.href = 'login.php';
+    </script>";
 
 }
 
