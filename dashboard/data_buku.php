@@ -1,9 +1,9 @@
 <?php
+session_start();
 
+$page_title = "Data Buku";
 $conn = mysqli_connect("localhost","root","","perpustakaan");
-
 $data = mysqli_query($conn,"SELECT * FROM buku");
-
 ?>
 
 <!DOCTYPE html>
@@ -12,130 +12,135 @@ $data = mysqli_query($conn,"SELECT * FROM buku");
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Data Buku</title>
-
-
 <style>
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Poppins,sans-serif;
+.container {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.07);
 }
 
-body{
-    background:#eef1f7;
-    padding:40px;
+h1 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 24px;
 }
 
-.container{
-    background:white;
-    padding:30px;
-    border-radius:20px;
+table {
+    width: 100%;
+    border-collapse: collapse;
 }
 
-h1{
-    margin-bottom:20px;
+th {
+    background: linear-gradient(to right, #7b2ff7, #4facfe);
+    color: white;
+    padding: 14px 16px;
+    text-align: center;
+    font-size: 13.5px;
+    font-weight: 600;
 }
 
-table{
-    width:100%;
-    border-collapse:collapse;
+th:first-child { border-radius: 10px 0 0 10px; }
+th:last-child  { border-radius: 0 10px 10px 0; }
+
+td {
+    padding: 14px 16px;
+    border-bottom: 1px solid #f0f0f0;
+    text-align: center;
+    font-size: 13.5px;
+    color: #444;
 }
 
-th{
-    background:linear-gradient(to right,#7b2ff7,#4facfe);
-    color:white;
-    padding:15px;
+tr:last-child td { border-bottom: none; }
+
+tr:hover td { background: #fafafa; }
+
+td img {
+    width: 70px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 8px;
 }
 
-td{
-    padding:15px;
-    border-bottom:1px solid #ddd;
-    text-align:center;
+.btn {
+    display: inline-block;
+    padding: 8px 16px;
+    background: linear-gradient(to right, #7b2ff7, #4facfe);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 12.5px;
+    transition: opacity 0.2s;
 }
 
-img{
-    width:80px;
-    border-radius:10px;
-}
+.btn:hover { opacity: 0.85; }
 
-.btn{
-    display:inline-block;
-    padding:10px 15px;
-    background:#7b2ff7;
-    color:white;
-    text-decoration:none;
-    border-radius:10px;
+.stok-habis {
+    color: #e53935;
+    font-weight: 600;
+    font-size: 12.5px;
 }
 
 </style>
-
 </head>
 <body>
 
-<div class="container">
+<?php include '../navbar/navbar.php'; ?>
 
-<h1>Data Buku</h1>
-<div class="container">
+    <div class="container">
 
-<a href="../dashboard/dashboard.php" class="btn-kembali">
-    ← Kembali
-</a>
+        <h1>Data Buku</h1>
 
-<h1>Data Buku</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Gambar</th>
+                    <th>Nama Buku</th>
+                    <th>Penerbit</th>
+                    <th>Kategori</th>
+                    <th>Tahun</th>
+                    <th>Stok</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
 
-<table>
+            <?php $no = 1; ?>
+            <?php while($row = mysqli_fetch_assoc($data)) : ?>
 
-<tr>
-    <th>No</th>
-    <th>Gambar</th>
-    <th>Nama Buku</th>
-    <th>Penerbit</th>
-    <th>Kategori</th>
-    <th>Tahun</th>
-    <th>Stok</th>
-    <th>Aksi</th>
-</tr>
+                <tr>
+                    <td><?= $no++ ?></td>
+                    <td>
+                        <img src="../admindashboard/upload/<?= $row['gambar'] ?>"
+                             onerror="this.src='../admindashboard/upload/default.jpg'">
+                    </td>
+                    <td><?= htmlspecialchars($row['nama_buku']) ?></td>
+                    <td><?= htmlspecialchars($row['penerbit']) ?></td>
+                    <td><?= htmlspecialchars($row['kategori']) ?></td>
+                    <td><?= htmlspecialchars($row['tahun_penerbit']) ?></td>
+                    <td><?= $row['jumlah_buku'] ?></td>
+                    <td>
+                        <?php if($row['jumlah_buku'] > 0) : ?>
+                            <a class="btn" href="pinjam.php?id=<?= $row['id'] ?>">
+                                Pinjam
+                            </a>
+                        <?php else : ?>
+                            <span class="stok-habis">Stok Habis</span>
+                        <?php endif; ?>
+                    </td>
+                </tr>
 
-<?php $no=1; ?>
+            <?php endwhile; ?>
 
-<?php while($row=mysqli_fetch_assoc($data)) : ?>
+            </tbody>
+        </table>
 
-<tr>
+    </div>
 
-<td><?= $no++; ?></td>
-
-<td>
-<img src="../admindashboard/upload/<?= $row['gambar']; ?>">
-</td>
-
-<td><?= $row['nama_buku']; ?></td>
-
-<td><?= $row['penerbit']; ?></td>
-
-<td><?= $row['kategori']; ?></td>
-
-<td><?= $row['tahun_penerbit']; ?></td>
-
-<td><?= $row['jumlah_buku']; ?></td>
-
-<td>
-
-<a class="btn"
-href="pinjam.php?id=<?= $row['id']; ?>">
-Pinjam
-</a>
-
-</td>
-
-</tr>
-
-<?php endwhile; ?>
-
-</table>
-
-</div>
+<?php include '../navbar/tutup_navbar.php'; ?>
 
 </body>
 </html>
