@@ -2,7 +2,22 @@
 
 $conn = mysqli_connect("localhost","root","","perpustakaan");
 
-$data = mysqli_query($conn,"SELECT * FROM buku");
+$search = "";
+$query = "SELECT * FROM buku";
+
+if(isset($_GET['search'])){
+    $search = trim($_GET['search']);
+}
+
+if($search != ""){
+    $keyword = "%$search%";
+    $stmt = mysqli_prepare($conn, "SELECT * FROM buku WHERE nama_buku LIKE ? OR penerbit LIKE ? OR kategori LIKE ? OR tahun_penerbit LIKE ?");
+    mysqli_stmt_bind_param($stmt, "ssss", $keyword, $keyword, $keyword, $keyword);
+    mysqli_stmt_execute($stmt);
+    $data = mysqli_stmt_get_result($stmt);
+}else{
+    $data = mysqli_query($conn, $query);
+}
 
 ?>
 
@@ -132,13 +147,17 @@ h1{
 
 <h1>Data Buku</h1>
 
-<div class="search-box">
+<form method="GET" class="search-box">
 
-<input type="text" placeholder="Cari buku...">
+<input 
+type="text" 
+name="search"
+placeholder="Cari buku..."
+value="<?= htmlspecialchars($search); ?>">
 
-<button>Cari</button>
+<button type="submit">Cari</button>
 
-</div>
+</form>
 
 <div class="book-grid">
 

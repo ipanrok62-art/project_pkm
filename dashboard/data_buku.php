@@ -10,6 +10,7 @@ $data = mysqli_query($conn,"SELECT * FROM buku");
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Data Buku</title>
 
 
