@@ -82,6 +82,54 @@ td img {
     font-size: 12.5px;
 }
 
+.search-wrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.search-box {
+    position: relative;
+    width: 100%;
+    max-width: 360px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 10px 16px 10px 40px;
+    border: 1.5px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 13.5px;
+    color: #333;
+    outline: none;
+    transition: border-color 0.2s;
+    box-sizing: border-box;
+}
+
+.search-box input:focus {
+    border-color: #7b2ff7;
+    box-shadow: 0 0 0 3px rgba(123,47,247,0.08);
+}
+
+.search-box .icon-search {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #aaa;
+    pointer-events: none;
+}
+
+.search-box input::placeholder { color: #bbb; }
+
+.no-result {
+    text-align: center;
+    padding: 30px;
+    color: #aaa;
+    font-size: 13.5px;
+    display: none;
+}
+
 </style>
 </head>
 <body>
@@ -92,7 +140,16 @@ td img {
 
         <h1>Peminjaman Buku</h1>
 
-        <table>
+        <div class="search-wrapper">
+            <div class="search-box">
+                <svg class="icon-search" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                </svg>
+                <input type="text" id="searchInput" placeholder="Cari nama buku...">
+            </div>
+        </div>
+
+        <table id="tablePeminjaman">
             <thead>
                 <tr>
                     <th>No</th>
@@ -131,7 +188,29 @@ td img {
             </tbody>
         </table>
 
+        <div class="no-result" id="noResult">Tidak ada buku yang cocok dengan pencarian.</div>
+
     </div>
+
+<script>
+document.getElementById('searchInput').addEventListener('input', function () {
+    const keyword = this.value.toLowerCase().trim();
+    const rows = document.querySelectorAll('#tablePeminjaman tbody tr');
+    let found = 0;
+
+    rows.forEach(function (row) {
+        const text = row.innerText.toLowerCase();
+        if (text.includes(keyword)) {
+            row.style.display = '';
+            found++;
+        } else {
+            row.style.display = 'none';
+        }
+    });
+
+    document.getElementById('noResult').style.display = found === 0 ? 'block' : 'none';
+});
+</script>
 
 <?php include '../navbar/tutup_navbar.php'; ?>
 

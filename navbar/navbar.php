@@ -1,5 +1,5 @@
 <?php
-// includes/sidebar.php
+
 $current_page = basename($_SERVER['PHP_SELF']);
 ?>
 
@@ -154,7 +154,7 @@ body {
 }
 </style>
 
-<!-- SIDEBAR -->
+
 <div class="sidebar">
 
     <div class="sidebar-logo">
@@ -177,8 +177,8 @@ body {
         Dashboard
     </a>
 
-    <a href="/perpustakaan/dashboard/data_buku.php"
-       class="nav-item <?= ($current_page=='data_buku.php') ? 'active' : '' ?>">
+    <a href="/perpustakaan/databuku/databuku.php"
+       class="nav-item <?= ($current_page=='databuku.php') ? 'active' : '' ?>">
         <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
             <path d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/>
         </svg>
@@ -201,6 +201,14 @@ body {
         Riwayat
     </a>
 
+    <a href="/perpustakaan/dashboard/sedang_dipinjam.php"
+       class="nav-item <?= ($current_page=='sedang_dipinjam.php') ? 'active' : '' ?>">
+        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"/>
+        </svg>
+        Sedang Dipinjam
+    </a>
+
 
     <div class="sidebar-footer">
         <a href="/perpustakaan/dashboard/logout.php">
@@ -213,7 +221,6 @@ body {
 
 </div>
 
-<!-- MAIN CONTENT WRAPPER + TOPBAR -->
 <div class="main-content">
 
     <div class="topbar">
