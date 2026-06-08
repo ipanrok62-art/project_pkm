@@ -105,19 +105,19 @@ body{
 
 /* WARNA CARD */
 .pink{
-    background:linear-gradient(45deg,#ff9a9e,#fad0c4);
+    background:rgb(7, 7, 129);
 }
 
 .blue{
-    background:linear-gradient(45deg,#2193b0,#6dd5ed);
+    background:rgb(12, 225, 83);
 }
 
 .green{
-    background:linear-gradient(45deg,#56ab2f,#a8e063);
+    background:orange;
 }
 
 .yellow{
-    background:linear-gradient(45deg,#f7971e,#ffd200);
+    background:rgb(183, 25, 25);
 }
 
 /* RESPONSIVE */

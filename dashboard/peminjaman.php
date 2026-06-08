@@ -34,7 +34,7 @@ table {
 }
 
 th {
-    background: linear-gradient(to right, #7b2ff7, #4facfe);
+    background: #073c6b;
     color: white;
     padding: 14px 16px;
     text-align: center;

@@ -13,7 +13,7 @@ body{
 .sidebar{
     width: 260px;
     height: 100vh;
-    background: linear-gradient(to bottom, #7b00ff, #0066ff);
+    background:#022f74;
     padding: 20px;
 }
 
@@ -48,8 +48,42 @@ body{
 .content{
     flex: 1;
     padding: 40px;
-}
 
+    background-image: url('gambar1.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
 .content h1{
     margin-bottom: 15px;
+}
+.dashboard-cards{
+    display:flex;
+    gap:20px;
+    margin-top:30px;
+    flex-wrap:wrap;
+}
+
+.card{
+    width:250px;
+    background:#fff;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.card h3{
+    margin-bottom:10px;
+    color:#555;
+}
+
+.card h1{
+    color:#6a00ff;
+    font-size:40px;
+    margin:0;
 }

@@ -18,7 +18,7 @@ body {
 .sidebar {
     width:230px;
     min-height:100vh;
-    background:linear-gradient(180deg,#7b2ff7 0%,#4facfe 100%);
+    background: #092d6b;
     display:flex;
     flex-direction:column;
     position:fixed;
@@ -183,6 +183,7 @@ body {
             <path d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/>
         </svg>
         Data Buku
+        
     </a>
 
     <a href="/perpustakaan/dashboard/peminjaman.php"

@@ -43,23 +43,6 @@
         </div>
 
         <div class="input-box">
-            <label>Upload Gambar Buku</label>
-
-            <div class="upload-box">
-                <input type="file" name="gambar" required>
-            </div>
-        </div>
-
-        <button type="submit" class="btn">
-            Tambah Buku
-        </button>
-
-        <div class="back-btn">
-    <a href="admindashboard.php">
-        ← Kembali ke Dashboard
-    </a>
-</div>
-<div class="input-box">
     <label>Kategori Buku</label>
 
     <select name="kategori" required>
@@ -79,6 +62,25 @@
     </select>
 
 </div>
+
+        <div class="input-box">
+            <label>Upload Gambar Buku</label>
+
+            <div class="upload-box">
+                <input type="file" name="gambar" required>
+            </div>
+        </div>
+
+        <button type="submit" class="btn">
+            Tambah Buku
+        </button>
+
+        <div class="back-btn">
+    <a href="admindashboard.php">
+        ← Kembali ke Dashboard
+    </a>
+</div>
+
 
     </form>
 

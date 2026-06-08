@@ -118,7 +118,7 @@ table {
 }
 
 th {
-    background: linear-gradient(to right, #56ab2f, #a8e063);
+    background: #073c6b;
     color: white;
     padding: 14px 16px;
     text-align: center;
@@ -241,7 +241,7 @@ tr:hover td { background: #f9fff5; }
 .modal-close:hover { background: #e0e0e0; }
 
 .modal table th {
-    background: linear-gradient(to right, #7b2ff7, #4facfe);
+    background: #022f74;
     border-radius: 0;
 }
 

@@ -106,7 +106,7 @@ $data = mysqli_query($conn, $query);
         }
 
         table th{
-            background:linear-gradient(to right,#7b2ff7,#4facfe);
+            background: #022f74;
             color:white;
             padding:15px;
         }
@@ -211,7 +211,7 @@ $data = mysqli_query($conn, $query);
     ">
         +
     </a>
-
+ 
     <a href="kurang_stok.php?id=<?= $row['id']; ?>" 
     style="
     padding:8px 12px;
@@ -219,6 +219,8 @@ $data = mysqli_query($conn, $query);
     color:white;
     text-decoration:none;
     border-radius:8px;
+    margin-right: 5px;
+     margin-left: 5px;
     ">
         -
     </a>

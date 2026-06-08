@@ -37,8 +37,9 @@ $sedang_dipinjam  = mysqli_fetch_row(mysqli_query($conn,"SELECT COUNT(*) FROM pe
 
     <div class="cards">
         <div class="card pink">
-            <p>Total Buku</p>
+            <p>Total Buku </p>
             <h3><?= $total_buku ?> Buku</h3>
+            
         </div>
         <div class="card blue">
             <p>Total Peminjaman</p>

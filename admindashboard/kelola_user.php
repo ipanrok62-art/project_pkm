@@ -66,7 +66,7 @@ table{
 }
 
 table th{
-    background:linear-gradient(to right,#7b2ff7,#4facfe);
+    background:#022f74;
     color:white;
     padding:15px;
 }
